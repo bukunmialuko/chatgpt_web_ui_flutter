@@ -1,4 +1,4 @@
-# chatgpt_web_ui
+# ChatGPT Web Ui-Kit
 
 A new Flutter project.
 
