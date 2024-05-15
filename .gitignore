@@ -41,3 +41,25 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# OBKM Custom
+*google-services.json
+*GoogleService-Info.plist
+
+.fvm/flutter_sdk
+
+*.freezed.dart
+*.g.dart
+*.env
+*.envv
+
+devtools_options.yaml
+
+/lib/generated/
+/lib/gen/
+
+**/*.freezed.dart
+**/*.g.dart
+**/*.mocks.dart
+
