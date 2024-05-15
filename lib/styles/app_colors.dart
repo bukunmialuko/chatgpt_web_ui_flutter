@@ -18,4 +18,6 @@ class AppColors {
   static const white = Color(0xffFFFFFF);
 
   static const blue = Color(0xff5536DA);
+
+  static const text = Color(0xff2E3339);
 }
