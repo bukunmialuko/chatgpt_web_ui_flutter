@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen>  with SingleTickerProviderS
 
   void animationListener(AnimationStatus status) {
     if (status == AnimationStatus.completed) {
-      context.go('/open-ai-chat');
+      context.go('/welcome');
     }
   }
 

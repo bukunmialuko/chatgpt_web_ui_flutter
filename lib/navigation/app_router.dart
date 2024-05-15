@@ -1,6 +1,7 @@
 import 'package:chatgpt_web_ui/features/home/root_page.dart';
 import 'package:chatgpt_web_ui/features/main/main_screen.dart';
 import 'package:chatgpt_web_ui/features/splash/splash_screen.dart';
+import 'package:chatgpt_web_ui/features/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,6 +23,11 @@ class AppRouter {
           parentNavigatorKey: _rootNavigatorKey,
           path: '/',
           builder: (context, state) => const SplashScreen(),
+        ),
+        GoRoute(
+          parentNavigatorKey: _rootNavigatorKey,
+          path: '/welcome',
+          builder: (context, state) => const WelcomeScreen(),
         ),
         StatefulShellRoute.indexedStack(
           builder: (BuildContext context, GoRouterState state,
