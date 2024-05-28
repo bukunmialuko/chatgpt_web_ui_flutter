@@ -13,6 +13,9 @@ class _ChatAreaState extends State<ChatArea> {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.middle,
+      child: Column(
+        children: [],
+      ),
     );
   }
 }
