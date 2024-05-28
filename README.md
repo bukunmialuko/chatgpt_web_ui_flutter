@@ -2,7 +2,7 @@
 
 Simple chat UI kit.
 
-## Getting Started
+## features
 
 [x] Welcome screen
 [x] Login screen
