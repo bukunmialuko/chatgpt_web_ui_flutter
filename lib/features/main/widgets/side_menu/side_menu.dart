@@ -1,3 +1,4 @@
+import 'package:chatgpt_web_ui/features/main/widgets/chat/chat_history.dart';
 import 'package:chatgpt_web_ui/generated/assets.gen.dart';
 import 'package:chatgpt_web_ui/styles/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -20,12 +21,25 @@ class _SideMenuState extends State<SideMenu> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: ListView.separated(
-                itemBuilder: (c, i) => const SizedBox(),
-                separatorBuilder: (c, i) => const SizedBox(),
-                itemCount: 2,
+            Material(
+              color: AppColors.dark,
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 14),
+                child: ListTile(
+                  leading: SizedBox(height: 8, child: Assets.svg.plus.svg()),
+                  title: const Text(
+                    'New chat',
+                    style: TextStyle(color: AppColors.white, fontSize: 13.5),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(color: AppColors.bright),
+                    borderRadius: BorderRadius.circular(10.55),
+                  ),
+                ),
               ),
+            ),
+            const Expanded(
+              child: ChatHistoryWidget(),
             ),
             const Divider(color: AppColors.bright),
             const _BottomSection(),
