@@ -1,6 +1,6 @@
 # ChatGPT Web Ui-Kit
 
-A new Flutter project.
+Simple chat UI kit.
 
 ## Getting Started
 
