@@ -3,6 +3,7 @@ import 'package:chatgpt_web_ui/shared/buttons/social_auth_button.dart';
 import 'package:chatgpt_web_ui/shared/custom_checkbox.dart';
 import 'package:chatgpt_web_ui/styles/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -69,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xffC3C8CF),
+                            color: AppColors.accentGreen,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
@@ -86,7 +87,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: double.infinity,
                       height: 50,
                       child: FilledButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.go('/main');
+                        },
                         style: FilledButton.styleFrom(
                           backgroundColor: AppColors.accentGreen,
                           shape: RoundedRectangleBorder(
@@ -108,9 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         const Text(
                           "Don’t have an account?",
                           style: TextStyle(
-                            fontSize: 14,
-                            color: Color(0xff2E3339),
-                          ),
+                              fontSize: 14,
+                              color: Color(0xff2E3339),
+                              fontWeight: FontWeight.w500),
                         ),
                         TextButton(
                           onPressed: () {},

@@ -1,6 +1,6 @@
-import 'package:chatgpt_web_ui/features/home/root_page.dart';
 import 'package:chatgpt_web_ui/features/login/login_screen.dart';
-import 'package:chatgpt_web_ui/features/main/main_screen.dart';
+import 'package:chatgpt_web_ui/features/main/root_page.dart';
+import 'package:chatgpt_web_ui/features/main/widgets/chat/chat_area.dart';
 import 'package:chatgpt_web_ui/features/splash/splash_screen.dart';
 import 'package:chatgpt_web_ui/features/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class AppRouter {
                 GoRoute(
                   path: '/main',
                   pageBuilder: (context, state) =>
-                      const NoTransitionPage(child: MainScreen()),
+                      const NoTransitionPage(child: ChatArea()),
                 ),
               ],
             ),
@@ -57,7 +57,11 @@ class AppRouter {
         return null;
       },
       errorBuilder: (context, __) {
-        return Container();
+        return const Scaffold(
+          body: Center(
+            child: Text('Page Not Found'),
+          ),
+        );
       },
     );
   }
