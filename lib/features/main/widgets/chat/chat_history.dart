@@ -61,7 +61,7 @@ class _ChatHistoryItem extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 6, right: 12),
                 width: 12,
                 height: 13,
-                child: Assets.svg.edit.svg()),
+                child: Assets.svg.pen.svg()),
             SizedBox(
               width: 12,
               height: 13,

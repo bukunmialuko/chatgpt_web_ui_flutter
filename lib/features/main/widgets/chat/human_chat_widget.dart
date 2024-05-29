@@ -1,6 +1,7 @@
 import 'package:chatgpt_web_ui/features/main/model/chat_model.dart';
 import 'package:chatgpt_web_ui/generated/assets.gen.dart';
 import 'package:chatgpt_web_ui/styles/app_colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HumanChatWidget extends StatelessWidget {
@@ -24,7 +25,7 @@ class HumanChatWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Assets.png.user.svg(),
+          SizedBox(width: 30, height: 30, child: Assets.svg.user.svg()),
           const SizedBox(width: 26),
           Expanded(
             child: Text(

@@ -1,6 +1,7 @@
 import 'package:chatgpt_web_ui/features/main/model/chat_model.dart';
 import 'package:chatgpt_web_ui/features/main/widgets/chat/ai_chat_widget.dart';
 import 'package:chatgpt_web_ui/features/main/widgets/chat/human_chat_widget.dart';
+import 'package:chatgpt_web_ui/features/main/widgets/chat/regenerate_response.dart';
 import 'package:chatgpt_web_ui/generated/assets.gen.dart';
 import 'package:chatgpt_web_ui/styles/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -39,11 +40,13 @@ class _ChatAreaState extends State<ChatArea> {
                   : AiChatWidget(
                       chatModel: chats[i],
                     ),
-              itemCount: 2,
+              itemCount: chats.length,
             ),
           ),
+          const RegenerateResponseWidget(),
           Container(
-            color: Colors.white,
+            height: 48,
+            // color: Colors.white,
             margin: EdgeInsets.only(
               left: screeWidth * 0.08,
               right: screeWidth * 0.08,
@@ -52,13 +55,40 @@ class _ChatAreaState extends State<ChatArea> {
             ),
             child: TextField(
               controller: _textController,
+              style: const TextStyle(color: AppColors.white, height: 1),
+              maxLines: 3,
               decoration: InputDecoration(
-                fillColor: const Color(0xff40414E),
-                labelStyle: TextStyle(),
                 labelText: '',
-                suffixIcon: Assets.svg.send.svg(),
+                filled: true,
+                fillColor: const Color(0xff40414E),
+                suffixIcon: Container(
+                  width: 14,
+                  height: 14,
+                  margin: const EdgeInsets.only(
+                    top: 16,
+                    bottom: 16,
+                    left: 16,
+                    right: 13,
+                  ),
+                  child: Assets.svg.sendChat.svg(),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Color(0xff303139)),
+                ),
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Color(0xff303139)),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Color(0xff303139)),
+                ),
+                errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Colors.redAccent),
+                ),
               ),
-              style: TextStyle(),
             ),
           ),
           Container(

@@ -28,7 +28,7 @@ class AiChatWidget extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Assets.png.chatGpt.svg(),
+            SizedBox(width: 30, height: 30, child: Assets.svg.chatGpt.svg()),
             const SizedBox(width: 26),
             Expanded(
               child: Text(
