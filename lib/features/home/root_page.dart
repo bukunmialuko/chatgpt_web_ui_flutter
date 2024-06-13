@@ -1,4 +1,4 @@
-import 'package:chatgpt_web_ui/features/main/widgets/side_menu/side_menu.dart';
+import 'package:chatgpt_web_ui/features/home/widgets/side_menu/side_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,8 +12,6 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return SelectionArea(

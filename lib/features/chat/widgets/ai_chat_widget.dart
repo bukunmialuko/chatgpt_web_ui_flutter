@@ -1,4 +1,4 @@
-import 'package:chatgpt_web_ui/features/main/model/chat_model.dart';
+import 'package:chatgpt_web_ui/features/chat/model/chat_model.dart';
 import 'package:chatgpt_web_ui/generated/assets.gen.dart';
 import 'package:chatgpt_web_ui/styles/app_colors.dart';
 import 'package:flutter/cupertino.dart';
