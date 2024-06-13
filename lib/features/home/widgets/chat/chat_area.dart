@@ -1,6 +1,6 @@
-import 'package:chatgpt_web_ui/features/main/model/chat_model.dart';
-import 'package:chatgpt_web_ui/features/main/widgets/chat/chats_widget.dart';
-import 'package:chatgpt_web_ui/features/main/widgets/chat/regenerate_response.dart';
+import 'package:chatgpt_web_ui/features/chat/model/chat_model.dart';
+import 'package:chatgpt_web_ui/features/chat/widgets/chats_widget.dart';
+import 'package:chatgpt_web_ui/features/chat/widgets/regenerate_response.dart';
 import 'package:chatgpt_web_ui/generated/assets.gen.dart';
 import 'package:chatgpt_web_ui/styles/app_colors.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,6 @@
+import 'package:chatgpt_web_ui/features/home/root_page.dart';
+import 'package:chatgpt_web_ui/features/home/widgets/chat/chat_area.dart';
 import 'package:chatgpt_web_ui/features/login/login_screen.dart';
-import 'package:chatgpt_web_ui/features/main/root_page.dart';
-import 'package:chatgpt_web_ui/features/main/widgets/chat/chat_area.dart';
 import 'package:chatgpt_web_ui/features/splash/splash_screen.dart';
 import 'package:chatgpt_web_ui/features/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
