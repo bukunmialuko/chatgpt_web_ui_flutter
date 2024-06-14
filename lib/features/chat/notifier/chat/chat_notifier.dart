@@ -8,18 +8,18 @@ part 'chat_notifier.g.dart';
 
 @riverpod
 class ChatNotifier extends _$ChatNotifier {
-  final Random random = Random();
+  final Random _random = Random();
 
   @override
   List<ChatModel> build() {
     return [];
   }
 
-  void addHumanChat(HumanChatModel model) {
+  void sendChat(HumanChatModel model) {
     final previousState = state;
-    int randomIndex = random.nextInt(loremIpsum.length);
+    int randomIndex = _random.nextInt(loremIpsum.length);
     final randomAiMessage = AiChatModel(loremIpsum[randomIndex]);
 
-    state = [...previousState, randomAiMessage];
+    state = [...previousState, model, randomAiMessage];
   }
 }

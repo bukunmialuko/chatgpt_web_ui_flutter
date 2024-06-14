@@ -1,17 +1,20 @@
+import 'package:chatgpt_web_ui/features/chat/model/chat_model.dart';
+import 'package:chatgpt_web_ui/features/chat/notifier/chat/chat_notifier.dart';
 import 'package:chatgpt_web_ui/features/chat/widgets/conversations_widget.dart';
 import 'package:chatgpt_web_ui/features/chat/widgets/regenerate_response.dart';
 import 'package:chatgpt_web_ui/generated/assets.gen.dart';
 import 'package:chatgpt_web_ui/styles/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ChatArea extends StatefulWidget {
+class ChatArea extends ConsumerStatefulWidget {
   const ChatArea({super.key});
 
   @override
-  State<ChatArea> createState() => _ChatAreaState();
+  ConsumerState<ChatArea> createState() => _ChatAreaState();
 }
 
-class _ChatAreaState extends State<ChatArea> {
+class _ChatAreaState extends ConsumerState<ChatArea> {
   final _textController = TextEditingController();
 
   @override
@@ -38,6 +41,10 @@ class _ChatAreaState extends State<ChatArea> {
               controller: _textController,
               style: const TextStyle(color: AppColors.white, height: 1),
               maxLines: 3,
+              textInputAction: TextInputAction.done,
+              onSubmitted: (_) {
+                sendChat();
+              },
               decoration: InputDecoration(
                 labelText: '',
                 filled: true,
@@ -51,7 +58,12 @@ class _ChatAreaState extends State<ChatArea> {
                     left: 16,
                     right: 13,
                   ),
-                  child: Assets.svg.sendChat.svg(),
+                  child: GestureDetector(
+                    onTap: () {
+                      sendChat();
+                    },
+                    child: Assets.svg.sendChat.svg(),
+                  ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -103,5 +115,18 @@ class _ChatAreaState extends State<ChatArea> {
         ],
       ),
     );
+  }
+
+  void sendChat() {
+    ref
+        .read(chatNotifierProvider.notifier)
+        .sendChat(HumanChatModel(_textController.value.text));
+    _textController.clear();
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    super.dispose();
   }
 }
