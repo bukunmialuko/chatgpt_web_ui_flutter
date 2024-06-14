@@ -6,5 +6,5 @@ Simple chat UI kit.
 
 [x] Welcome screen
 [x] Login screen
-[ ] Main UI
-[ ] Start screen
+[x] Main UI
+[x] Start screen
