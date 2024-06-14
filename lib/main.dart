@@ -3,13 +3,14 @@ import 'dart:async';
 import 'package:chatgpt_web_ui/navigation/app_router.dart';
 import 'package:chatgpt_web_ui/styles/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 Future<void> main() async {
   return runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
-    runApp(const App());
+    runApp(const ProviderScope(child: App()));
   }, (error, stackTrace) {
     debugPrint(stackTrace.toString());
     debugPrint(error.toString());

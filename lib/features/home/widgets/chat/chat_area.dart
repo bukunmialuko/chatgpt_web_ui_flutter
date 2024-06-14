@@ -1,26 +1,20 @@
 import 'package:chatgpt_web_ui/features/chat/model/chat_model.dart';
-import 'package:chatgpt_web_ui/features/chat/widgets/chats_widget.dart';
+import 'package:chatgpt_web_ui/features/chat/notifier/chat/chat_notifier.dart';
+import 'package:chatgpt_web_ui/features/chat/widgets/conversations_widget.dart';
 import 'package:chatgpt_web_ui/features/chat/widgets/regenerate_response.dart';
 import 'package:chatgpt_web_ui/generated/assets.gen.dart';
 import 'package:chatgpt_web_ui/styles/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ChatArea extends StatefulWidget {
+class ChatArea extends ConsumerStatefulWidget {
   const ChatArea({super.key});
 
   @override
-  State<ChatArea> createState() => _ChatAreaState();
+  ConsumerState<ChatArea> createState() => _ChatAreaState();
 }
 
-// final List<ChatModel> chats = [
-//   HumanChatModel('What is a Chatbot?'),
-//   AiChatModel(
-//       'A chatbot is a computer program that simulates human conversation through voice commands or text chats or both. It can be integrated with various messaging platforms like Facebook Messenger, WhatsApp, WeChat, etc. and can be used for a variety of purposes, such as customer service, entertainment, and e-commerce.'),
-// ];
-
-final List<ChatModel> chats = [];
-
-class _ChatAreaState extends State<ChatArea> {
+class _ChatAreaState extends ConsumerState<ChatArea> {
   final _textController = TextEditingController();
 
   @override
@@ -32,7 +26,7 @@ class _ChatAreaState extends State<ChatArea> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Expanded(child: ChatsWidget()),
+          const Expanded(child: ConversationsWidget()),
           const RegenerateResponseWidget(),
           Container(
             height: 48,
@@ -47,6 +41,10 @@ class _ChatAreaState extends State<ChatArea> {
               controller: _textController,
               style: const TextStyle(color: AppColors.white, height: 1),
               maxLines: 3,
+              textInputAction: TextInputAction.done,
+              onSubmitted: (_) {
+                sendChat();
+              },
               decoration: InputDecoration(
                 labelText: '',
                 filled: true,
@@ -60,7 +58,12 @@ class _ChatAreaState extends State<ChatArea> {
                     left: 16,
                     right: 13,
                   ),
-                  child: Assets.svg.sendChat.svg(),
+                  child: GestureDetector(
+                    onTap: () {
+                      sendChat();
+                    },
+                    child: Assets.svg.sendChat.svg(),
+                  ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -112,5 +115,18 @@ class _ChatAreaState extends State<ChatArea> {
         ],
       ),
     );
+  }
+
+  void sendChat() {
+    ref
+        .read(chatNotifierProvider.notifier)
+        .sendChat(HumanChatModel(_textController.value.text));
+    _textController.clear();
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    super.dispose();
   }
 }
