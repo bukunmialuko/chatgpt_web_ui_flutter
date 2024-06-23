@@ -10,7 +10,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>  with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
   @override
@@ -38,13 +39,15 @@ class _SplashScreenState extends State<SplashScreen>  with SingleTickerProviderS
 
   @override
   Widget build(BuildContext context) {
-
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: AppColors.middle,
       body: Center(
         child: SizedBox(
-            width: 120,
-            child: Assets.svg.logo.svg()),
+          width: 120,
+          child: Assets.svg.logo.svg(
+            key: const Key('logo'),
+          ),
+        ),
       ),
     );
   }
