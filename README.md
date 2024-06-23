@@ -9,21 +9,27 @@ Simple chat UI kit.
 </p>
 
 <br />
-## features
 
-[x] Splash screen
-[x] Welcome screen
-[x] Login screen
-[x] Main UI
-[x] Start screen
-[x] Go router
-[x] Riverpod
+## 🎖️ Design Credit
+
+**BOTFRIENDS**
+(https://www.botfriends.com)
+
+## Features
+
+- [x] Splash screen
+- [x] Welcome screen
+- [x] Login screen
+- [x] Main UI
+- [x] Start screen
+- [x] Go router
+- [x] Riverpod
 
 
 ## 📸 Screenshots
 
 - welcome
-<img src="screenshots/welcome.png" alt="welcome.png">
+  <img src="screenshots/welcome.png" alt="welcome.png">
 
 - login
   <img src="screenshots/login.png" alt="login.png">
