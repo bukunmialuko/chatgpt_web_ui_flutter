@@ -84,34 +84,39 @@ class _ChatAreaState extends ConsumerState<ChatArea> {
               ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(
-              left: screeWidth * 0.04,
-              right: screeWidth * 0.04,
-              top: 8,
-              bottom: 24,
-            ),
-            child: const Text.rich(
-              textAlign: TextAlign.center,
-              TextSpan(
-                text: 'Don\'t have an account? ',
-                children: [
-                  TextSpan(
-                    text:
-                        '''ree Research Preview. Our goal is to make AI systems more natural and safe to interact with. Your feedback will help us improve.''',
-                    style: TextStyle(
-                      color: AppColors.greyFootprint,
-                      fontSize: 12,
+          LayoutBuilder(builder: (context, constraints) {
+            if (constraints.maxWidth > 380) {
+              return const SizedBox.shrink();
+            }
+            return Container(
+              margin: EdgeInsets.only(
+                left: screeWidth * 0.04,
+                right: screeWidth * 0.04,
+                top: 8,
+                bottom: 24,
+              ),
+              child: const Text.rich(
+                textAlign: TextAlign.center,
+                TextSpan(
+                  text: 'Don\'t have an account? ',
+                  children: [
+                    TextSpan(
+                      text:
+                          '''ree Research Preview. Our goal is to make AI systems more natural and safe to interact with. Your feedback will help us improve.''',
+                      style: TextStyle(
+                        color: AppColors.greyFootprint,
+                        fontSize: 12,
+                      ),
                     ),
+                  ],
+                  style: TextStyle(
+                    color: AppColors.greyFootprint,
+                    fontSize: 12,
                   ),
-                ],
-                style: TextStyle(
-                  color: AppColors.greyFootprint,
-                  fontSize: 12,
                 ),
               ),
-            ),
-          ),
+            );
+          })
         ],
       ),
     );
